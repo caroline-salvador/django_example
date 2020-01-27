@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+
+{% block title %}
+Consulta Previsão do Tempo
+{% endblock title %}
+
+{% block content %}
+
+{{ form_medicoes_cidade.errors }}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+        {{ form_medicoes_cidade.cidade.errors }}
+        <label> Cidade: </label>
+            {{ form_medicoes_cidade.cidade|addclass:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        {{ form_medicoes_cidade.sigla_pais.errors }}
+        <label> Sigla País: </label>
+            {{ form_medicoes_cidade.sigla_pais|addclass:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+        <button class="btn btn-success" type="submit">Consultar</button>
+    </div>
+</form>
+
+{% endblock content %}

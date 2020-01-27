@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dados Climáticos
+{% endblock title %}
+
+{% block content %}
+<div class="'card">
+    <div class="card-header">
+        <h4><b>Previsão do Tempo</b></h4>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Cidade: {{ medicoes_cidade.cidade }}</h5>
+        <h5 class="card-title">País: {{ medicoes_cidade.sigla_pais }}</h5>
+        <h5 class="card-title">Data: {{ dados_climaticos.data_medicao }}</h5>
+        <h5 class="card-title">Hora: {{ dados_climaticos.hora_medicao }}</h5>
+        <h5 class="card-title">Horário nascer do sol: {{ dados_climaticos.nascer_sol }}</h5>
+        <h5 class="card-title">Horário por do sol: {{ dados_climaticos.por_sol }}</h5>
+        <h5 class="card-title">Temperatura: {{ dados_climaticos.temperatura_atual }}</h5>
+        <h5 class="card-title">Temperatura Mínima: {{ dados_climaticos.temperatura_minima }}</h5>
+        <h5 class="card-title">Temperatura Máxima: {{ dados_climaticos.temperatura_maxima }}</h5>
+        <h5 class="card-title">Velocidade do vento (km/h): {{ dados_climaticos.velocidade_vento }}</h5>
+        <h5 class="card-title">Umidade relativa do ar (%): {{ dados_climaticos.umidade_relativa_ar }}</h5>
+        <h5 class="card-title">Volume de chuva: {{ dados_climaticos.volume_chuva }}</h5>
+        <h5 class="card-title">Detalhes: {{ dados_climaticos.detalhes }}</h5>
+
+        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Voltar</a>
+    </div>
+</div>
+{% endblock content %}
